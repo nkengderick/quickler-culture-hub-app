@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
@@ -34,18 +34,18 @@ const Sidebar: React.FC = () => {
   };
 
   return (
-    <div className="bg-background border-r border-border hidden md:block">
-      <div className="p-4">
-        <h2 className="text-lg font-bold mb-4">{t('sidebar.title')}</h2>
-        <ul>
+    <div className="bg-background border-r border-border hidden md:block h-screen">
+      <div className="p-6">
+        <h2 className="text-lg font-bold mb-6 text-foreground">{t('sidebar.title')}</h2>
+        <ul className="grid gap-4">
           {Object.entries(sidebarItems).map(([key, { name, icon, link }]) => (
             <li key={key}>
               <button
                 onClick={() => router.push(link)}
-                className="flex items-center text-sm py-2 hover:bg-muted rounded-md w-full text-foreground"
+                className="grid grid-cols-[auto_1fr] items-center gap-3 text-sm py-3 px-4 hover:text-muted rounded-md w-full text-foreground transition-colors duration-200"
               >
-                <FontAwesomeIcon icon={icon} className="mr-3 text-lg" />
-                {name}
+                <FontAwesomeIcon icon={icon} className="text-lg" />
+                <span>{name}</span>
               </button>
             </li>
           ))}

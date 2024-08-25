@@ -1,116 +1,124 @@
 {
-    "home": {
-      "heroTitle": "Bienvenue sur Culture Hub",
-      "heroSubtitle": "Découvrez et mettez en valeur des talents créatifs",
-      "ctaButton": "Commencer",
-      "topProducts": "Produits Phare",
-      "signInSignUp": "Connexion / Inscription",
-      "browseCategories": "Parcourir les Catégories"
-    },
-    "common": {
-      "viewMore": "Voir Plus",
-      "buyNow": "Acheter Maintenant",
-      "learnMore": "En Savoir Plus"
-    },
-    "signup": {
-      "title": "Inscription",
-      "name": "Nom Complet",
-      "email": "Adresse Email",
-      "password": "Mot de Passe",
-      "userType": "Sélectionnez le Type d'Utilisateur",
-      "creator": "Créateur",
-      "customer": "Client",
-      "institution": "Institution",
-      "submit": "S'inscrire",
-      "step2": {
-        "creator": {
-          "title": "Configuration du Profil Créateur",
-          "bio": "Courte Biographie",
-          "portfolio": "Lien du Portfolio",
-          "genres": "Genres ou Formes d'Art",
-          "submit": "Terminer l'Inscription"
-        },
-        "customer": {
-          "title": "Configuration du Profil Client",
-          "preferences": "Préférences Culturelles",
-          "interests": "Domaines d'Intérêt",
-          "submit": "Terminer l'Inscription"
-        },
-        "institution": {
-          "title": "Configuration du Profil Institution",
-          "organizationName": "Nom de l'Organisation",
-          "contactPerson": "Personne de Contact",
-          "website": "URL du Site Web",
-          "submit": "Terminer l'Inscription"
-        }
-      }
-    },
-    "tabBar": {
-      "home": "Accueil",
-      "explore": "Explorer",
-      "marketplace": "Marché",
-      "profile": "Profil"
-    },
-    "sidebar": {
-      "title": "Menu",
-      "home": "Accueil",
-      "explore": "Explorer",
-      "marketplace": "Marché",
-      "profile": "Profil"
-    },
-    "marketplace": {
-      "title": "Marché"
-    },
-    "searchFilters": {
-      "searchPlaceholder": "Rechercher...",
-      "filtersTitle": "Filtres",
-      "categoryLabel": "Catégorie",
-      "priceRangeLabel": "Gamme de Prix",
-      "applyFiltersButton": "Appliquer les Filtres",
-      "categories": {
-        "all": "Toutes les Catégories",
-        "art": "Art",
-        "music": "Musique",
-        "literature": "Littérature",
-        "crafts": "Artisanat"
-      }
-    },
-    "explore": {
-      "title": "Explorer les Catégories",
-      "explore": "Explorer",
-      "art": {
-        "title": "Art",
-        "description": "Découvrez diverses formes d'art provenant de différentes cultures."
+  "home": {
+    "heroTitle": "Bienvenue sur Culture Hub",
+    "heroSubtitle": "Découvrez et mettez en valeur des talents créatifs",
+    "ctaButton": "Commencer",
+    "topProducts": "Produits Phare",
+    "signInSignUp": "Connexion / Inscription",
+    "browseCategories": "Parcourir les Catégories"
+  },
+  "common": {
+    "viewMore": "Voir Plus",
+    "buyNow": "Acheter Maintenant",
+    "learnMore": "En Savoir Plus"
+  },
+  "signup": {
+    "title": "Inscription",
+    "name": "Nom Complet",
+    "email": "Adresse Email",
+    "password": "Mot de Passe",
+    "userType": "Sélectionnez le Type d'Utilisateur",
+    "creator": "Créateur",
+    "customer": "Client",
+    "institution": "Institution",
+    "submit": "S'inscrire",
+    "step2": {
+      "creator": {
+        "title": "Configuration du Profil Créateur",
+        "bio": "Courte Biographie",
+        "portfolio": "Lien du Portfolio",
+        "genres": "Genres ou Formes d'Art",
+        "submit": "Terminer l'Inscription"
       },
-      "music": {
-        "title": "Musique",
-        "description": "Découvrez la musique traditionnelle et moderne du monde entier."
+      "customer": {
+        "title": "Configuration du Profil Client",
+        "preferences": "Préférences Culturelles",
+        "interests": "Domaines d'Intérêt",
+        "submit": "Terminer l'Inscription"
       },
-      "literature": {
-        "title": "Littérature",
-        "description": "Plongez dans le monde de la littérature et de la narration."
-      },
-      "crafts": {
-        "title": "Artisanat",
-        "description": "Trouvez des objets artisanaux uniques et faits main."
+      "institution": {
+        "title": "Configuration du Profil Institution",
+        "organizationName": "Nom de l'Organisation",
+        "contactPerson": "Personne de Contact",
+        "website": "URL du Site Web",
+        "submit": "Terminer l'Inscription"
       }
-    },
-    "community": {
-      "title": "Communauté",
-      "discussionsTitle": "Discussions",
-      "questionsTitle": "Questions"
-    },
-    "discussionCard": {
-      "upvotes": "Votes",
-      "comments": "Commentaires",
-      "viewDetails": "Voir les Détails"
-    },
-    "questionCard": {
-      "answers": "Réponses",
-      "viewDetails": "Voir les Détails"
-    },
-    "productCard": {
-      "viewDetails": "Voir les Détails"
     }
+  },
+  "tabBar": {
+    "home": "Accueil",
+    "explore": "Explorer",
+    "marketplace": "Marché",
+    "profile": "Profil"
+  },
+  "sidebar": {
+    "title": "Menu",
+    "home": "Accueil",
+    "explore": "Explorer",
+    "marketplace": "Marché",
+    "profile": "Profil"
+  },
+  "header": {
+    "name": "Culture Hub",
+    "marketplace": "Marché",
+    "explore": "Explorer",
+    "community": "Communauté",
+    "resources": "Ressources",
+    "events": "Événements",
+    "signIn": "Se Connecter"
+  },
+  "marketplace": {
+    "title": "Marché"
+  },
+  "searchFilters": {
+    "searchPlaceholder": "Rechercher...",
+    "filtersTitle": "Filtres",
+    "categoryLabel": "Catégorie",
+    "priceRangeLabel": "Gamme de Prix",
+    "applyFiltersButton": "Appliquer les Filtres",
+    "categories": {
+      "all": "Toutes les Catégories",
+      "art": "Art",
+      "music": "Musique",
+      "literature": "Littérature",
+      "crafts": "Artisanat"
+    }
+  },
+  "explore": {
+    "title": "Explorer les Catégories",
+    "explore": "Explorer",
+    "art": {
+      "title": "Art",
+      "description": "Découvrez diverses formes d'art provenant de différentes cultures."
+    },
+    "music": {
+      "title": "Musique",
+      "description": "Découvrez la musique traditionnelle et moderne du monde entier."
+    },
+    "literature": {
+      "title": "Littérature",
+      "description": "Plongez dans le monde de la littérature et de la narration."
+    },
+    "crafts": {
+      "title": "Artisanat",
+      "description": "Trouvez des objets artisanaux uniques et faits main."
+    }
+  },
+  "community": {
+    "title": "Communauté",
+    "discussionsTitle": "Discussions",
+    "questionsTitle": "Questions"
+  },
+  "discussionCard": {
+    "upvotes": "Votes",
+    "comments": "Commentaires",
+    "viewDetails": "Voir les Détails"
+  },
+  "questionCard": {
+    "answers": "Réponses",
+    "viewDetails": "Voir les Détails"
+  },
+  "productCard": {
+    "viewDetails": "Voir les Détails"
   }
-  
+}

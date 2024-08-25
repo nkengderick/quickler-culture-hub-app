@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
@@ -35,12 +35,12 @@ const TabBar: React.FC = () => {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-background border-t border-border md:hidden">
-      <div className="flex justify-around p-2 bg-background">
+      <div className="grid grid-cols-4 gap-2 p-2 bg-background">
         {Object.entries(tabBarItems).map(([key, { name, icon, link }]) => (
           <button
             key={key}
             onClick={() => router.push(link)}
-            className="flex flex-col items-center text-sm text-foreground hover:text-accent"
+            className="grid place-items-center text-sm text-foreground hover:text-muted transition-colors duration-200"
           >
             <FontAwesomeIcon icon={icon} className="text-2xl" />
             <span className="mt-1">{name}</span>

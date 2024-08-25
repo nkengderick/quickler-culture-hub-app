@@ -58,6 +58,15 @@
     "marketplace": "Marketplace",
     "profile": "Profile"
   },
+  "header": {
+    "name": "Culture Hub",
+    "marketplace": "Marketplace",
+    "explore": "Explore",
+    "community": "Community",
+    "resources": "Resources",
+    "events": "Events",
+    "signIn": "Sign In"
+  },
   "marketplace": {
     "title": "MarketPlace"
   },

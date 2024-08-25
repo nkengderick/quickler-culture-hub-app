@@ -19,7 +19,6 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>
-            <Header />
             <div className="">
               {children}
             </div>
