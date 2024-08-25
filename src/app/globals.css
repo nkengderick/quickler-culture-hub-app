@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Theme Colors */
+    --background: 45 100% 99%; /* Light cream background */
+    --foreground: 240 7% 15%; /* Dark charcoal text */
+    --card: 0 0% 100%; /* Pure white card background */
+    --card-foreground: 240 7% 15%; /* Dark charcoal card text */
+    --popover: 45 100% 99%; /* Light cream popover */
+    --popover-foreground: 240 7% 15%; /* Dark charcoal text */
+    --primary: 33 100% 65%; /* Vibrant orange for primary accents */
+    --primary-foreground: 240 7% 15%; /* Dark charcoal on primary */
+    --secondary: 160 100% 75%; /* Bright cyan secondary */
+    --secondary-foreground: 240 7% 15%; /* Dark charcoal on secondary */
+    --muted: 240 20% 95%; /* Light gray-muted */
+    --muted-foreground: 240 7% 35%; /* Medium gray-muted text */
+    --accent: 330 80% 70%; /* Vivid magenta for accents */
+    --accent-foreground: 45 100% 99%; /* Light cream on accent */
+    --destructive: 0 84% 65%; /* Bright red for destructive actions */
+    --destructive-foreground: 240 7% 15%; /* Dark charcoal on destructive */
+    --border: 240 15% 80%; /* Soft gray for borders */
+    --input: 240 20% 95%; /* Light gray for inputs */
+    --ring: 33 100% 65%; /* Vibrant orange for focus rings */
+    --radius: 0.5rem; /* Standard border-radius */
+
+    /* Custom chart colors */
+    --chart-1: 33 100% 65%; /* Orange */
+    --chart-2: 160 100% 75%; /* Cyan */
+    --chart-3: 330 80% 70%; /* Magenta */
+    --chart-4: 45 100% 99%; /* Cream */
+    --chart-5: 0 84% 65%; /* Red */
+  }
+
+  .dark {
+    /* Dark Theme Colors */
+    --background: 240 7% 15%; /* Dark charcoal background */
+    --foreground: 45 100% 99%; /* Light cream text */
+    --card: 240 7% 20%; /* Slightly lighter charcoal card background */
+    --card-foreground: 45 100% 99%; /* Light cream card text */
+    --popover: 240 7% 20%; /* Slightly lighter charcoal popover */
+    --popover-foreground: 45 100% 99%; /* Light cream text */
+    --primary: 33 100% 65%; /* Vibrant orange for primary accents */
+    --primary-foreground: 45 100% 99%; /* Light cream on primary */
+    --secondary: 160 100% 60%; /* Softer cyan secondary */
+    --secondary-foreground: 45 100% 99%; /* Light cream on secondary */
+    --muted: 240 7% 25%; /* Darker gray-muted */
+    --muted-foreground: 240 20% 95%; /* Light gray-muted text */
+    --accent: 330 80% 70%; /* Vivid magenta for accents */
+    --accent-foreground: 240 7% 15%; /* Dark charcoal on accent */
+    --destructive: 0 84% 55%; /* Darker red for destructive actions */
+    --destructive-foreground: 45 100% 99%; /* Light cream on destructive */
+    --border: 240 7% 25%; /* Dark gray for borders */
+    --input: 240 7% 25%; /* Dark gray for inputs */
+    --ring: 33 100% 65%; /* Vibrant orange for focus rings */
+
+    /* Custom chart colors */
+    --chart-1: 240 70% 50%; /* Deep blue */
+    --chart-2: 160 100% 75%; /* Cyan */
+    --chart-3: 33 100% 65%; /* Orange */
+    --chart-4: 330 80% 70%; /* Magenta */
+    --chart-5: 0 84% 65%; /* Red */
+  }
+}
+
+@layer base {
+  /* General Base Styles */
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif; /* Ensure a clean, readable font */
+    line-height: 1.5;
+  }
+
+  a {
+    @apply text-primary hover:underline;
+    text-decoration-skip-ink: auto;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    @apply bg-primary text-primary-foreground rounded px-4 py-2;
+    transition: background-color 0.3s;
+  }
+
+  button:hover {
+    @apply bg-primary/90;
+  }
+
+  input, textarea {
+    @apply border border-border bg-input text-foreground rounded px-3 py-2;
+    transition: border-color 0.3s;
+  }
+
+  input:focus, textarea:focus {
+    @apply outline-none border-ring;
+  }
+
+  .card {
+    @apply bg-card text-card-foreground p-4 rounded-lg shadow-lg;
+  }
+
+  .dark-mode-toggle {
+    @apply cursor-pointer p-2 rounded-full transition-colors;
+  }
+
+  .dark-mode-toggle:hover {
+    @apply bg-muted;
+  }
+}

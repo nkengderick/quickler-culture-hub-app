@@ -1,0 +1,115 @@
+{
+  "home": {
+    "heroTitle": "Welcome to Culture Hub",
+    "heroSubtitle": "Discover and showcase creative talents",
+    "ctaButton": "Get Started",
+    "topProducts": "Top Products",
+    "signInSignUp": "Sign In / Sign Up",
+    "browseCategories": "Browse Categories"
+  },
+  "common": {
+    "viewMore": "View More",
+    "buyNow": "Buy Now",
+    "learnMore": "Learn More"
+  },
+  "signup": {
+    "title": "Sign Up",
+    "name": "Full Name",
+    "email": "Email Address",
+    "password": "Password",
+    "userType": "Select User Type",
+    "creator": "Creator",
+    "customer": "Customer",
+    "institution": "Institution",
+    "submit": "Sign Up",
+    "step2": {
+      "creator": {
+        "title": "Creator Profile Setup",
+        "bio": "Short Bio",
+        "portfolio": "Portfolio Link",
+        "genres": "Genres or Art Forms",
+        "submit": "Complete Sign Up"
+      },
+      "customer": {
+        "title": "Customer Profile Setup",
+        "preferences": "Cultural Preferences",
+        "interests": "Areas of Interest",
+        "submit": "Complete Sign Up"
+      },
+      "institution": {
+        "title": "Institution Profile Setup",
+        "organizationName": "Organization Name",
+        "contactPerson": "Contact Person",
+        "website": "Website URL",
+        "submit": "Complete Sign Up"
+      }
+    }
+  },
+  "tabBar": {
+    "home": "Home",
+    "explore": "Explore",
+    "marketplace": "Marketplace",
+    "profile": "Profile"
+  },
+  "sidebar": {
+    "title": "Menu",
+    "home": "Home",
+    "explore": "Explore",
+    "marketplace": "Marketplace",
+    "profile": "Profile"
+  },
+  "marketplace": {
+    "title": "MarketPlace"
+  },
+  "searchFilters": {
+    "searchPlaceholder": "Search...",
+    "filtersTitle": "Filters",
+    "categoryLabel": "Category",
+    "priceRangeLabel": "Price Range",
+    "applyFiltersButton": "Apply Filters",
+    "categories": {
+      "all": "All Categories",
+      "art": "Art",
+      "music": "Music",
+      "literature": "Literature",
+      "crafts": "Crafts"
+    }
+  },
+  "explore": {
+    "title": "Explore Categories",
+    "explore": "Explore",
+    "art": {
+      "title": "Art",
+      "description": "Explore various art forms from different cultures."
+    },
+    "music": {
+      "title": "Music",
+      "description": "Discover traditional and modern music across the globe."
+    },
+    "literature": {
+      "title": "Literature",
+      "description": "Dive into the world of literature and storytelling."
+    },
+    "crafts": {
+      "title": "Crafts",
+      "description": "Find unique crafts and handmade goods."
+    }
+  },
+  "community": {
+    "title": "Community",
+    "discussionsTitle": "Discussions",
+    "questionsTitle": "Questions"
+  },
+  "discussionCard": {
+    "upvotes": "Upvotes",
+    "comments": "Comments",
+    "viewDetails": "View Details"
+  },
+  "questionCard": {
+    "answers": "Answers",
+    "viewDetails": "View Details"
+  },
+  "productCard": {
+    "viewDetails": "View Details"
+  }
+}
