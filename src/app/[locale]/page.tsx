@@ -10,6 +10,7 @@ import TrendingProducts from '@/components/(home)/TrendingProducts';
 import Banner from '@/components/(home)/Banner';
 import SpecialOffers from '@/components/(home)/SpecialOffers';
 import PartnersSection from '@/components/(home)/Partners';
+import ThreeDModelViewer from '@/components/ThreeDModelViewer';
 
 const HomePage: React.FC = () => {
   const t = useTranslations();
@@ -18,6 +19,7 @@ const HomePage: React.FC = () => {
     <div>
       <Header />
       <main>
+      <ThreeDModelViewer modelUrl="/threed/one.glb" />
         <HeroSection />
         <BrowseCategories />
         <TopProducts />
@@ -30,6 +32,6 @@ const HomePage: React.FC = () => {
       <Footer />
     </div>
   );
-};
+}
 
 export default HomePage;

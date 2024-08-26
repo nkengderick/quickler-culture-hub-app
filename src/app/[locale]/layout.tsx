@@ -1,5 +1,6 @@
 import { ThemeProvider } from '@/contexts/theme-context';
 import '../globals.css'
+import { ClerkProvider } from '@clerk/nextjs'
 
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
@@ -14,16 +15,18 @@ export default async function LocaleLayout({
 
   const messages = await getMessages();
   return (
-    <html lang={locale}>
-      <body>
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProvider>
-            <div className="">
-              {children}
-            </div>
-          </ThemeProvider>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider messages={messages}>
+      <ClerkProvider>
+        <html lang={locale}>
+          <body suppressHydrationWarning={true}>
+            <ThemeProvider>
+              <div className="">
+                {children}
+              </div>
+            </ThemeProvider>
+          </body>
+        </html>
+      </ClerkProvider>
+    </NextIntlClientProvider>
   );
 }
