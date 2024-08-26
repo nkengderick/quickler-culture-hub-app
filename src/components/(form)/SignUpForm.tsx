@@ -1,127 +1,175 @@
 "use client"
 import React, { useState } from 'react';
-import { useTranslations } from 'next-intl';
-import Button from '../(ui)/Button';
-import { useRouter } from 'next/navigation';
+import { useForm, Controller } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { auth, db } from '@/lib/firebaseConfig';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
 
-const SignUpForm: React.FC = () => {
-  const t = useTranslations();
-  const [userType, setUserType] = useState<'creator' | 'customer' | 'institution'>('creator');
+// Step validation schemas
+const step1Schema = z.object({
+  email: z.string().email('Invalid email address'),
+  password: z.string().min(6, 'Password must be at least 6 characters long'),
+});
+
+const step2Schema = z.object({
+  name: z.string().min(1, 'Name is required'),
+  profilePic: z.instanceof(File).optional(),
+});
+
+const step3Schema = z.object({
+  purpose: z.string().min(1, 'Please select a purpose'),
+  interests: z.string().min(1, 'Please select at least one interest'),
+});
+
+type FormValues = {
+  email: string;
+  password: string;
+  name: string;
+  profilePic: File | null;
+  purpose: string;
+  interests: string;
+};
+
+const SignupForm: React.FC = () => {
   const [step, setStep] = useState(1);
-  const router = useRouter()
+  const { handleSubmit, control, setValue, getValues, formState: { errors, isValid } } = useForm<FormValues>({
+    mode: 'onChange',
+    resolver: zodResolver(step === 1 ? step1Schema : step === 2 ? step2Schema : step3Schema),
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleNext = async (data: FormValues) => {
     if (step === 1) {
-      setStep(2);
-    } else {
-      // Handle final form submission
-      console.log('Form submitted');
-      router.push('/marketplace')
-    }
-  };
-
-  const renderStep1 = () => (
-    <>
-      <div className="mb-4">
-        <label htmlFor="name" className="block text-sm font-medium mb-2">{t('signup.name')}</label>
-        <input type="text" id="name" name="name" required className="w-full p-2 border border-gray-300 rounded" />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="email" className="block text-sm font-medium mb-2">{t('signup.email')}</label>
-        <input type="email" id="email" name="email" required className="w-full p-2 border border-gray-300 rounded" />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="password" className="block text-sm font-medium mb-2">{t('signup.password')}</label>
-        <input type="password" id="password" name="password" required className="w-full p-2 border border-gray-300 rounded" />
-      </div>
-      <div className="mb-6">
-        <p className="text-sm font-medium mb-2">{t('signup.userType')}</p>
-        <div className="flex space-x-4">
-          <label className="flex items-center">
-            <input type="radio" value="creator" checked={userType === 'creator'} onChange={() => setUserType('creator')} />
-            <span className="ml-2">{t('signup.creator')}</span>
-          </label>
-          <label className="flex items-center">
-            <input type="radio" value="customer" checked={userType === 'customer'} onChange={() => setUserType('customer')} />
-            <span className="ml-2">{t('signup.customer')}</span>
-          </label>
-          <label className="flex items-center">
-            <input type="radio" value="institution" checked={userType === 'institution'} onChange={() => setUserType('institution')} />
-            <span className="ml-2">{t('signup.institution')}</span>
-          </label>
-        </div>
-      </div>
-    </>
-  );
-
-  const renderStep2 = () => {
-    switch (userType) {
-      case 'creator':
-        return (
-          <>
-            <div className="mb-4">
-              <label htmlFor="bio" className="block text-sm font-medium mb-2">{t('signup.step2.creator.bio')}</label>
-              <textarea id="bio" name="bio" required className="w-full p-2 border border-gray-300 rounded" />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="portfolio" className="block text-sm font-medium mb-2">{t('signup.step2.creator.portfolio')}</label>
-              <input type="url" id="portfolio" name="portfolio" required className="w-full p-2 border border-gray-300 rounded" />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="genres" className="block text-sm font-medium mb-2">{t('signup.step2.creator.genres')}</label>
-              <input type="text" id="genres" name="genres" required className="w-full p-2 border border-gray-300 rounded" />
-            </div>
-          </>
-        );
-      case 'customer':
-        return (
-          <>
-            <div className="mb-4">
-              <label htmlFor="preferences" className="block text-sm font-medium mb-2">{t('signup.step2.customer.preferences')}</label>
-              <input type="text" id="preferences" name="preferences" required className="w-full p-2 border border-gray-300 rounded" />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="interests" className="block text-sm font-medium mb-2">{t('signup.step2.customer.interests')}</label>
-              <input type="text" id="interests" name="interests" required className="w-full p-2 border border-gray-300 rounded" />
-            </div>
-          </>
-        );
-      case 'institution':
-        return (
-          <>
-            <div className="mb-4">
-              <label htmlFor="organizationName" className="block text-sm font-medium mb-2">{t('signup.step2.institution.organizationName')}</label>
-              <input type="text" id="organizationName" name="organizationName" required className="w-full p-2 border border-gray-300 rounded" />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="contactPerson" className="block text-sm font-medium mb-2">{t('signup.step2.institution.contactPerson')}</label>
-              <input type="text" id="contactPerson" name="contactPerson" required className="w-full p-2 border border-gray-300 rounded" />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="website" className="block text-sm font-medium mb-2">{t('signup.step2.institution.website')}</label>
-              <input type="url" id="website" name="website" required className="w-full p-2 border border-gray-300 rounded" />
-            </div>
-          </>
-        );
-      default:
-        return null;
+      try {
+        await createUserWithEmailAndPassword(auth, data.email, data.password);
+        setStep(2);
+      } catch (error) {
+        console.error('Error creating user:', error);
+      }
+    } else if (step === 2) {
+      const user = auth.currentUser;
+      if (user) {
+        await updateProfile(user, {
+          displayName: data.name,
+          photoURL: data.profilePic ? URL.createObjectURL(data.profilePic) : '',
+        });
+        await setDoc(doc(db, 'users', user.uid), {
+          name: data.name,
+          profilePic: data.profilePic ? URL.createObjectURL(data.profilePic) : '',
+        });
+        setStep(3);
+      }
+    } else if (step === 3) {
+      const user = auth.currentUser;
+      if (user) {
+        await setDoc(doc(db, 'users', user.uid), {
+          purposes: data.purpose,
+          interests: data.interests,
+        });
+        // Redirect to profile page
+        window.location.href = '/profile';
+      }
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-6 bg-white shadow-md rounded">
-      <h2 className="text-2xl font-bold mb-6">
-        {step === 1 ? t('signup.title') : t(`signup.step2.${userType}.title`)}
-      </h2>
-      
-      {step === 1 ? renderStep1() : renderStep2()}
-      
-      <Button type="submit">
-        {step === 1 ? t('signup.submit') : t(`signup.step2.${userType}.submit`)}
-      </Button>
-    </form>
+    <div className="flex flex-col items-center justify-center min-h-screen">
+      <h1 className="text-2xl font-bold mb-4">Signup</h1>
+      <form onSubmit={handleSubmit(handleNext)} className="w-full max-w-md">
+        {step === 1 && (
+          <>
+            <Controller
+              name="email"
+              control={control}
+              render={({ field }) => (
+                <div className="mb-4">
+                  <input {...field} type="email" placeholder="Email" className="input-field" />
+                  {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+                </div>
+              )}
+            />
+            <Controller
+              name="password"
+              control={control}
+              render={({ field }) => (
+                <div className="mb-4">
+                  <input {...field} type="password" placeholder="Password" className="input-field" />
+                  {errors.password && <p className="text-red-500">{errors.password.message}</p>}
+                </div>
+              )}
+            />
+          </>
+        )}
+
+        {step === 2 && (
+          <>
+            <Controller
+              name="name"
+              control={control}
+              render={({ field }) => (
+                <div className="mb-4">
+                  <input {...field} type="text" placeholder="Name" className="input-field" />
+                  {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+                </div>
+              )}
+            />
+            <Controller
+              name="profilePic"
+              control={control}
+              render={({ field }) => (
+                <div className="mb-4">
+                  <input 
+                    type="file" 
+                    onChange={(e) => {
+                      const file = e.target.files ? e.target.files[0] : null;
+                      setValue('profilePic', file);
+                    }} 
+                    className="input-field"
+                  />
+                  {errors.profilePic && <p className="text-red-500">{errors.profilePic.message}</p>}
+                </div>
+              )}
+            />
+          </>
+        )}
+
+        {step === 3 && (
+          <>
+            <Controller
+              name="purpose"
+              control={control}
+              render={({ field }) => (
+                <div className="mb-4">
+                  <select {...field} className="input-field">
+                    <option value="" disabled>Select Your Purpose</option>
+                    <option value="Sell Art">Sell Art</option>
+                    <option value="Showcase Portfolio">Showcase Portfolio</option>
+                    <option value="Collaborate">Collaborate</option>
+                  </select>
+                  {errors.purpose && <p className="text-red-500">{errors.purpose.message}</p>}
+                </div>
+              )}
+            />
+            <Controller
+              name="interests"
+              control={control}
+              render={({ field }) => (
+                <div className="mb-4">
+                  <input {...field} type="text" placeholder="Interests" className="input-field" />
+                  {errors.interests && <p className="text-red-500">{errors.interests.message}</p>}
+                </div>
+              )}
+            />
+          </>
+        )}
+
+        <button type="submit" className="btn-primary mt-4" disabled={!isValid}>
+          {step === 3 ? 'Complete Signup' : 'Next'}
+        </button>
+      </form>
+    </div>
   );
 };
 
-export default SignUpForm;
+export default SignupForm;

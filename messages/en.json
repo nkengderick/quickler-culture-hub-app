@@ -1,9 +1,10 @@
 {
   "home": {
-    "heroTitle": "Welcome to Culture Hub",
-    "heroSubtitle": "Discover and showcase creative talents",
+    "heroTitle": "Welcome to Mac",
+    "heroSubtitle": "Home of Creativity",
     "ctaButton": "Get Started",
     "topProducts": "Top Products",
+    "trendingProducts": "Trending Products",
     "signInSignUp": "Sign In / Sign Up",
     "browseCategories": "Browse Categories"
   },
@@ -120,5 +121,108 @@
   },
   "productCard": {
     "viewDetails": "View Details"
+  },
+  "products": {
+    "product1": {
+      "id": "1",
+      "imageUrl": "https://picsum.photos/id/1/100/100",
+      "name": "Marine Pot",
+      "price": "$449.00",
+      "description": "A beautifully crafted marine pot that brings an artistic touch to any space.",
+      "rating": 4.5,
+      "reviewCount": 45
+    },
+    "product2": {
+      "id": "2",
+      "imageUrl": "https://picsum.photos/id/1/100/100",
+      "name": "Vintage Vase",
+      "price": "$349.00",
+      "description": "A vintage vase with intricate details, perfect for displaying fresh flowers.",
+      "rating": 4.7,
+      "reviewCount": 32
+    },
+    "product3": {
+      "id": "3",
+      "imageUrl": "https://picsum.photos/id/1/100/100",
+      "name": "Rustic Lamp",
+      "price": "$199.00",
+      "description": "A rustic lamp that adds a warm glow to your living space.",
+      "rating": 4.3,
+      "reviewCount": 28
+    },
+    "product4": {
+      "id": "4",
+      "imageUrl": "https://picsum.photos/id/1/100/100",
+      "name": "Decorative Plate",
+      "price": "$149.00",
+      "description": "A decorative plate with hand-painted designs, ideal for wall displays.",
+      "rating": 4.6,
+      "reviewCount": 22
+    }
+  },
+  "categories": {
+    "all": "All",
+    "art": "Art",
+    "crafts": "Crafts",
+    "music": "Music",
+    "literature": "Literature"
+  },
+  "banner": {
+    "discount": "20%",
+    "off": "OFF",
+    "title": "Seasonal Weekly Sale 2024",
+    "subtitle": "Use code Sale2024 to get the best offer",
+    "altText": "Wicker chair on patio"
+  },
+  "specialOffers": {
+    "title": "Special offers for you",
+    "viewAll": "View all",
+    "available": "Available"
+  },
+  "partners": {
+    "partner1": "https://via.placeholder.com/150?text=partner1",
+    "partner2": "https://via.placeholder.com/150?text=partner2",
+    "partner3": "https://via.placeholder.com/150?text=partner3",
+    "partner4": "https://via.placeholder.com/150?text=partner4",
+    "partner5": "https://via.placeholder.com/150?text=partner5",
+    "viewAll": "All brands"
+  },
+  "footer": {
+    "company": {
+      "title": "Mac",
+      "link1": "About Mac",
+      "link2": "Our team, Quickler",
+      "link3": "Careers",
+      "link4": "Contact us",
+      "link5": "News"
+    },
+    "account": {
+      "title": "Account",
+      "link1": "Your account",
+      "link2": "Shipping rates & policies",
+      "link3": "Refunds & replacements",
+      "link4": "Delivery info",
+      "link5": "Order tracking",
+      "link6": "Taxes & fees"
+    },
+    "customerService": {
+      "title": "Customer service",
+      "link1": "Payment methods",
+      "link2": "Money back guarantee",
+      "link3": "Product returns",
+      "link4": "Support center",
+      "link5": "Shipping",
+      "link6": "Terms and conditions"
+    }
+  },
+  "subscribe": {
+    "title": "Sign up to our newsletter",
+    "description": "Receive our latest updates about our products & promotions",
+    "placeholder": "Your email",
+    "subscribe": "Subscribe"
+  },
+  "productDetails": {
+    "availability": "{count} available in stock",
+    "addToCatalog": "Add to Catalog"
   }
 }

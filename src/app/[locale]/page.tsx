@@ -6,6 +6,10 @@ import TopProducts from '@/components/(home)/TopProductsSection';
 import SignInSignUp from '@/components/(home)/SignInSignUp';
 import Header from '@/components/(layout)/Header';
 import Footer from '@/components/(layout)/Footer';
+import TrendingProducts from '@/components/(home)/TrendingProducts';
+import Banner from '@/components/(home)/Banner';
+import SpecialOffers from '@/components/(home)/SpecialOffers';
+import PartnersSection from '@/components/(home)/Partners';
 
 const HomePage: React.FC = () => {
   const t = useTranslations();
@@ -17,6 +21,10 @@ const HomePage: React.FC = () => {
         <HeroSection />
         <BrowseCategories />
         <TopProducts />
+        <TrendingProducts />
+        <Banner />
+        <SpecialOffers />
+        <PartnersSection />
         <SignInSignUp />
       </main>
       <Footer />

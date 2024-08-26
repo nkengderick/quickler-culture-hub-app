@@ -1,19 +1,12 @@
-import React from 'react';
-import { useTranslations } from 'next-intl';
-import SignUpForm from '@/components/(form)/SignUpForm';
+import SignUpForm from '@/components/(form)/SignUpForm'
+import React from 'react'
 
-const SignUpPage: React.FC = () => {
-  const t = useTranslations();
-
+const page = () => {
   return (
     <div>
-      <main className="py-16">
-        <div className="container mx-auto">
-          <SignUpForm />
-        </div>
-      </main>
+      <SignUpForm />
     </div>
-  );
-};
+  )
+}
 
-export default SignUpPage;
+export default page
